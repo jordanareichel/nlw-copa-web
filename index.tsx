@@ -2,9 +2,10 @@ import React, { FormEvent, useState } from 'react';
 
 import Image from 'next/image';
 
-import { api } from '../api/api';
 import avatares from '../assets/avatares.png';
 import nlwcCopa from '../assets/nlw-copa.png';
+
+import { api } from './src/api/api';
 
 interface HomeProps {
   poolCount: number;
