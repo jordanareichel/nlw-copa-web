@@ -2,10 +2,9 @@ import React, { FormEvent, useState } from 'react';
 
 import Image from 'next/image';
 
+import { api } from '../api/api';
 import avatares from '../assets/avatares.png';
 import nlwcCopa from '../assets/nlw-copa.png';
-
-import { api } from './src/api/api';
 
 interface HomeProps {
   poolCount: number;
@@ -92,19 +91,19 @@ export default function Home(props: HomeProps) {
   );
 }
 
-export const getServerSideProps = async () => {
-  const [poolCountResponse, guessCountResponse, usersCountResponse] =
-    await Promise.all([
-      api.get('/pools/count'),
-      api.get('guess/count'),
-      api.get('users/count'),
-    ]);
+// export const getServerSideProps = async () => {
+//   const [poolCountResponse, guessCountResponse, usersCountResponse] =
+//     await Promise.all([
+//       api.get('/pools/count'),
+//       api.get('guess/count'),
+//       api.get('users/count'),
+//     ]);
 
-  return {
-    props: {
-      poolCount: poolCountResponse.data.count,
-      guessCount: guessCountResponse.data.count,
-      usersCount: usersCountResponse.data.count,
-    },
-  };
-};
+//   return {
+//     props: {
+//       poolCount: poolCountResponse.data.count,
+//       guessCount: guessCountResponse.data.count,
+//       usersCount: usersCountResponse.data.count,
+//     },
+//   };
+// };
